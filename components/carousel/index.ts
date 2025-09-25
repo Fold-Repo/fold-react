@@ -1,0 +1,1 @@
+export { default as SwiperCarousel, SwiperSlide } from "./SwiperCarousel";

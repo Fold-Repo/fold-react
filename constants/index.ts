@@ -1,0 +1,12 @@
+import { API_BASE_URL, ENDPOINT } from "./endpoint";
+import { CONTACT_INFO, type CONTACT_INFO_TYPE, type CONTACT_MAP_INFO_TYPE , CONTACT_MAP_INFO} from "./contact";
+
+export {
+    API_BASE_URL,
+    ENDPOINT,
+
+    CONTACT_INFO,
+    CONTACT_INFO_TYPE,
+    CONTACT_MAP_INFO_TYPE,
+    CONTACT_MAP_INFO
+}

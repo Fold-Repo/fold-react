@@ -9,19 +9,46 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@heroicons/react": "^2.2.0",
+    "@heroui/react": "^2.8.4",
+    "@hookform/resolvers": "^5.2.2",
+    "@reduxjs/toolkit": "^2.9.0",
+    "@tanstack/react-query": "^5.90.2",
+    "@tanstack/react-query-devtools": "^5.90.2",
+    "@types/moment": "^2.11.29",
+    "aos": "^2.3.4",
+    "axios": "^1.12.2",
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.23.19",
+    "moment": "^2.30.1",
+    "next": "15.5.3",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "next": "15.5.3"
+    "react-hook-form": "^7.63.0",
+    "react-hot-toast": "^2.6.0",
+    "react-icons": "^5.5.0",
+    "react-otp-input": "^3.1.1",
+    "react-redux": "^9.2.0",
+    "redux-persist": "^6.0.0",
+    "swiper": "^12.0.2",
+    "tailwind-merge": "^3.3.1",
+    "yup": "^1.7.1"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/postcss": "^4",
+    "@types/aos": "^3.0.7",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
+    "@types/react-redux": "^7.1.34",
+    "@types/redux-persist": "^4.0.0",
+    "@types/swiper": "^5.4.3",
     "eslint": "^9",
     "eslint-config-next": "15.5.3",
-    "@eslint/eslintrc": "^3"
+    "tailwindcss": "^4",
+    "tailwindcss-debug-screens": "^3.0.1",
+    "typescript": "^5"
   }
 }

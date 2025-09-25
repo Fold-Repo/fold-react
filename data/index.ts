@@ -1,0 +1,2 @@
+export { posts } from "./post";
+
