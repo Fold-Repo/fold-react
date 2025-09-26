@@ -34,9 +34,9 @@ export function getDiscountPercentage(originalPrice: number | string, discounted
  * @param obj - The object to clean.
  * @returns A new object without empty or null fields.
  */
-export const removeEmptyFields = (obj: Record<string, any>): Record<string, any> => {
+export const removeEmptyFields = (obj: Record<string, unknown>): Record<string, unknown> => {
     return Object.fromEntries(
-        Object.entries(obj).filter(([_, v]) => v !== "" && v !== null)
+        Object.entries(obj).filter(([, v]) => v !== "" && v !== null)
     );
 };
 

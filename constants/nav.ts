@@ -24,7 +24,7 @@ export const NAV_GROUPS: NavGroup[] = [
         id: "products",
         label: "Products",
         items: [
-            { label: "Products List 1", href: "/products/style-1" },
+            { label: "Products List 1", href: "/products" },
             { label: "Products List 2", href: "/products/style-2" },
             { isDivider: true },
             { label: "Product Details 1", href: "/products/detail/product-1" },

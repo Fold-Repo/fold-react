@@ -1,6 +1,6 @@
 "use client"
 
-import { Button, Checkbox, Input, PasswordInput, SocialLoginButton } from "@/components/ui"
+import { Button, Checkbox, Input, PasswordInput } from "@/components/ui"
 import Link from "next/link"
 import React from "react"
 
