@@ -40,7 +40,7 @@ const DesktopDropdown: React.FC<DesktopDropdownProps> = ({ group }) => {
 
             {/*  ================= Desktop Popover ================= */}
             {open && (
-                <div className="z-10 absolute left-0 mt-3 min-w-[10rem] overflow-hidden rounded-xl bg-white shadow-lg outline 
+                <div className="z-40 absolute left-0 mt-3 min-w-[10rem] overflow-hidden rounded-xl bg-white shadow-lg outline 
                     outline-gray-900/5 dark:bg-gray-800 dark:shadow-none dark:-outline-offset-1 dark:outline-white/10 px-1 py-2 text-xs space-y-0.5">
                     {Array.isArray(group.items) && group.items.map((item, idx) => (
                         item.isDivider ? (

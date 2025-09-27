@@ -1,5 +1,6 @@
 import { cn } from "@/lib";
 import React from "react";
+import { ChevronRightIcon } from "@heroicons/react/24/outline";
 
 export interface BreadcrumbItem {
     label: string;
@@ -20,7 +21,7 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({
     items,
     variant = "left",
     className,
-    separator = <i className="ri-arrow-right-s-line text-gray-600 dark:text-gray-400 text-lg"></i>
+    separator = <ChevronRightIcon className="w-4 h-4 text-gray-600 dark:text-gray-400" />
 }) => {
     const alignmentClasses: Record<BreadcrumbVariant, string> = {
         left: "justify-left",

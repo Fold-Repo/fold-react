@@ -1,7 +1,7 @@
 import { LoginView, RegisterVIew, PasswordView } from "./auth";
 import { ContactView, ContactTwoView, ContactThreeView } from "./contacts";
 import { BlogView, BlogViewTwo, BlogDetailView, BlogDetailsTwoView, BlogDetailsThreeView, BlogDetailFourView } from "./blog";
-import { ProductsView, ProductsViewTwo } from "./products";
+import { ProductsView, ProductsViewTwo, ProductReviews, SimilarProduct } from "./products";
 
 export {
 
@@ -21,6 +21,8 @@ export {
     BlogDetailFourView,
 
     ProductsView,
-    ProductsViewTwo
+    ProductsViewTwo,
+    ProductReviews,
+    SimilarProduct
 
 }

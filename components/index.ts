@@ -4,8 +4,9 @@ import Pagination from "./Pagination";
 import { Dropdown, Button } from "./ui";
 import Breadcrumb from "./Breadcrumb";
 import { GridSwitcher, ResponsiveGrid, Accordion, AccordionItem, RatingStars } from "./reusable";
-import { ProductTopBar, ProductLayout, ProductFilterBar, ColorSwatch } from "./products";
-import { ProductCard, ProductCardTwo } from "./cards";
+import { ProductTopBar, ProductLayout, ProductFilterBar, ColorSwatch, ProductImageGallery, ProductDeliveryInfo } from "./products";
+import { ProductCard, ProductCardTwo, ReviewCard } from "./cards";
+import { QuantitySelector } from "./cart";
 
 export { 
     ThemeSwitcher,
@@ -23,6 +24,10 @@ export {
     ProductLayout,
     ProductFilterBar,
     ColorSwatch,
+    ProductImageGallery,
+    ProductDeliveryInfo,
     ProductCard,
-    ProductCardTwo
+    ProductCardTwo,
+    ReviewCard,
+    QuantitySelector
 };

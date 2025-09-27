@@ -1,6 +1,7 @@
 "use client"
 
-import { Breadcrumb, Pagination, ProductFilterBar, ProductLayout, ProductTopBar, ResponsiveGrid, ProductCard, ProductCardTwo } from "@/components"
+import { Breadcrumb, Pagination, ProductFilterBar, ProductLayout, 
+    ProductTopBar, ResponsiveGrid, ProductCard, ProductCardTwo } from "@/components"
 import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
 import { useQueryParams } from "@/hooks"

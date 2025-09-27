@@ -17,6 +17,7 @@ export interface ProductType {
     brand?: string;
     colors?: ProductColor[];
     inStock: boolean;
+    isFreeDelivery?: boolean;
 }
 
 export interface ProductMetaSummary {
