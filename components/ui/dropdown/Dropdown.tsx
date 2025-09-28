@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useRef, useEffect } from "react";
+import Image from "next/image";
 import { cn } from "@/lib";
 import { useClickOutside } from "@/hooks/useClickOutside";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
@@ -103,9 +104,11 @@ const Dropdown: React.FC<DropdownProps> = ({
                         )}
                         {selectedOption.icon && selectedOption.icon}
                         {selectedOption.image && (
-                            <img 
+                            <Image 
                                 src={selectedOption.image} 
                                 alt={selectedOption.label}
+                                width={16}
+                                height={16}
                                 className="size-4 rounded object-cover"
                             />
                         )}
@@ -185,9 +188,11 @@ const Dropdown: React.FC<DropdownProps> = ({
                                     )}
                                     {option.icon && option.icon}
                                     {option.image && (
-                                        <img 
+                                        <Image 
                                             src={option.image} 
                                             alt={option.label}
+                                            width={20}
+                                            height={20}
                                             className="size-5 rounded object-cover"
                                         />
                                     )}

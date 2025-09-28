@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, memo } from "react";
+import React, { useState, useEffect, useCallback, memo } from "react";
 import { Image } from "@heroui/react";
 import { motion } from "framer-motion";
 import { ProductType } from "@/types";
@@ -61,36 +61,36 @@ const ProductImageGallery: React.FC<ProductImageGalleryProps> = ({
         }
     };
 
-    const handleNextImage = () => {
+    const handleNextImage = useCallback(() => {
         setIsUserInteracting(true);
         const nextIndex = (currentIndex + 1) % thumbnailImages.length;
         setCurrentIndex(nextIndex);
         if (onImageSelect) {
             onImageSelect(thumbnailImages[nextIndex]);
         }
-    };
+    }, [currentIndex, thumbnailImages, onImageSelect]);
 
-    const handlePrevImage = () => {
+    const handlePrevImage = useCallback(() => {
         setIsUserInteracting(true);
         const prevIndex = currentIndex === 0 ? thumbnailImages.length - 1 : currentIndex - 1;
         setCurrentIndex(prevIndex);
         if (onImageSelect) {
             onImageSelect(thumbnailImages[prevIndex]);
         }
-    };
+    }, [currentIndex, thumbnailImages, onImageSelect]);
 
     useEffect(() => {
         const handleKeyPress = (e: KeyboardEvent) => {
-            if (e.key === 'ArrowLeft') {
+            if (e.key === "ArrowLeft") {
                 handlePrevImage();
-            } else if (e.key === 'ArrowRight') {
+            } else if (e.key === "ArrowRight") {
                 handleNextImage();
             }
         };
 
-        window.addEventListener('keydown', handleKeyPress);
-        return () => window.removeEventListener('keydown', handleKeyPress);
-    }, [currentIndex]);
+        window.addEventListener("keydown", handleKeyPress);
+        return () => window.removeEventListener("keydown", handleKeyPress);
+    }, [currentIndex, handleNextImage, handlePrevImage]);
 
     const NavigationArrows = () => (
         <>
@@ -131,7 +131,7 @@ const ProductImageGallery: React.FC<ProductImageGalleryProps> = ({
                                 `${product.name} - ${product.colors[index - 1].label}` :
                                 `Thumbnail ${index + 1}`)}
                         className={`w-16 h-16 lg:w-18 lg:h-18 object-cover rounded-lg cursor-pointer transition 
-                            duration-150 flex-shrink-0 ${currentIndex === index ? 'ring ring-offset-2 ring-gray-500' : ''
+                            duration-150 flex-shrink-0 ${currentIndex === index ? "ring ring-offset-2 ring-gray-500" : ""
                             }`}
                         width={80}
                         onClick={() => handleThumbnailClick(index)}

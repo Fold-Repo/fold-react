@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import { cn } from "@/lib";
 
 const gridOptions = [
@@ -45,14 +46,8 @@ const GridSwitcher: React.FC<GridSwitcherProps> = ({
                             visibility === "xl" && "hidden xl:flex",
                             "focus:outline-none cursor-pointer"
                         )}>
-                        <img
-                            src={selected === value ? iconActive : icon}
-                            alt={alt}
-                            className={cn(
-                                "h-3.5",
-                                selected === value && "filter brightness-1 invert"
-                            )}
-                        />
+                        <img src={selected === value ? iconActive : icon} alt={alt} className={cn(
+                            "h-3.5",  selected === value && "filter brightness-1 invert" )} />
                     </button>
                 ))}
             </div>

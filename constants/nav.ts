@@ -80,7 +80,9 @@ export const NAV_GROUPS: NavGroup[] = [
 /*  ================= Right Side Actions ================= */
 export const HEADER_ACTIONS = {
     login: { label: "Login/Register", href: "/signin" },
-    cart: { label: "Cart", href: "/pages/cart" }
+    wishlist: { label: "Wishlist", href: "/pages/wishlist" },
+    cart: { label: "Cart", href: "/pages/cart" },
+    checkout: { label: "Checkout", href: "/pages/cart/checkout" }
 }
 
 

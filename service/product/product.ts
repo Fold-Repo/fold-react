@@ -17,3 +17,13 @@ export const getProductById = async (id: string | number) => {
     const response = await axiosNoAuth.get(ENDPOINT.PRODUCT.PRODUCT_BY_ID(id));
     return response?.data;
 };
+
+export const getProductReviews = async (id: string | number) => {
+    const response = await axiosNoAuth.get(ENDPOINT.PRODUCT.PRODUCT_REVIEWS(id));
+    return response?.data.data;
+};
+
+export const getSimilarProducts = async (id: string | number) => {
+    const response = await axiosNoAuth.get(ENDPOINT.PRODUCT.SIMILAR_PRODUCTS(id));
+    return response?.data.data;
+};

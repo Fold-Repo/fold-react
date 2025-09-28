@@ -1,4 +1,4 @@
-import { ProductDetailsViewThree } from "@/views/products";
+import { ProductDetailsViewThree } from "@/views";
 import { Metadata } from "next";
 import React from "react"
 
@@ -7,5 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function page() {
-    return <ProductDetailsViewThree productId="3" variant="3" />
+    return <ProductDetailsViewThree productId="3"/>
 }

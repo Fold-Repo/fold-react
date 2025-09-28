@@ -1,5 +1,5 @@
 import InternetCheck from "./internetCheck";
-import { formatDigits, getDiscountPercentage, removeEmptyFields, getUniqueProductImages } from "./helper";
+import { formatDigits, getDiscountPercentage, removeEmptyFields } from "./helper";
 import { paginate } from "./paginate";
 import { debounce } from "./debounce";
 
@@ -10,6 +10,4 @@ export {
     debounce,
     getDiscountPercentage,
     removeEmptyFields,
-
-    getUniqueProductImages
 }

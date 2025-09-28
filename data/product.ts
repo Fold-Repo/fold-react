@@ -1,4 +1,4 @@
-import { ProductType } from "@/types";
+import { ProductType, SpecificationType, Review } from "@/types";
 
 const categories = [
     "Audio",
@@ -117,6 +117,419 @@ function makeProduct(id: number): ProductType {
         
         return colorsMap[productId] || undefined;
     };
+
+    const getReviews = (productId: number): Review[] => {
+        const reviewTemplates = [
+            {
+                content: "Excellent product! Great quality and fast delivery. Highly recommend to anyone looking for this type of item.",
+                author: { name: "Sarah Johnson", role: "Verified Buyer", image: "https://i.pravatar.cc/150?u=sarah" },
+                rating: 5,
+                date: new Date(Date.now() - Math.random() * 30 * 24 * 60 * 60 * 1000)
+            },
+            {
+                content: "Good value for money. Works as expected and the build quality is solid. Would buy again.",
+                author: { name: "Mike Chen", role: "Verified Buyer", image: "https://i.pravatar.cc/150?u=mike" },
+                rating: 4,
+                date: new Date(Date.now() - Math.random() * 30 * 24 * 60 * 60 * 1000)
+            },
+            {
+                content: "Amazing product! Exceeded my expectations. The quality is outstanding and it arrived quickly.",
+                author: { name: "Emily Davis", role: "Verified Buyer", image: "https://i.pravatar.cc/150?u=emily" },
+                rating: 5,
+                date: new Date(Date.now() - Math.random() * 30 * 24 * 60 * 60 * 1000)
+            },
+            {
+                content: "Decent product overall. Some minor issues but nothing major. Good for the price point.",
+                author: { name: "David Wilson", role: "Verified Buyer", image: "https://i.pravatar.cc/150?u=david" },
+                rating: 3,
+                date: new Date(Date.now() - Math.random() * 30 * 24 * 60 * 60 * 1000)
+            },
+            {
+                content: "Perfect! Exactly what I was looking for. Great customer service and fast shipping.",
+                author: { name: "Lisa Brown", role: "Verified Buyer", image: "https://i.pravatar.cc/150?u=lisa" },
+                rating: 5,
+                date: new Date(Date.now() - Math.random() * 30 * 24 * 60 * 60 * 1000)
+            },
+            {
+                content: "Good product with some room for improvement. Overall satisfied with the purchase.",
+                author: { name: "James Taylor", role: "Verified Buyer", image: "https://i.pravatar.cc/150?u=james" },
+                rating: 4,
+                date: new Date(Date.now() - Math.random() * 30 * 24 * 60 * 60 * 1000)
+            }
+        ];
+
+        // Generate exactly 3 reviews per product
+        const numReviews = 3;
+        const selectedReviews = [];
+        
+        for (let i = 0; i < numReviews; i++) {
+            const template = reviewTemplates[Math.floor(Math.random() * reviewTemplates.length)];
+            selectedReviews.push({
+                id: `${productId}-review-${i + 1}`,
+                content: template.content,
+                author: template.author,
+                rating: template.rating,
+                date: template.date
+            });
+        }
+
+        return selectedReviews;
+    };
+
+    const getSpecifications = (productId: number, category: string): SpecificationType[] => {
+        const specificationsMap: { [key: number]: SpecificationType[] } = {
+            // Gaming Mouse (Product 4)
+            4: [
+                {
+                    title: "Key Features",
+                    features: [
+                        "25,500 DPI Precision sensor",
+                        "Wireless 2.4GHz & Bluetooth connectivity",
+                        "80-hour battery life",
+                        "Customizable RGB lighting",
+                        "7 programmable buttons",
+                        "Ultra-lightweight 65g design"
+                    ]
+                },
+                {
+                    title: "Performance",
+                    items: [
+                        { label: "DPI Range", value: "100 - 25,600" },
+                        { label: "Polling Rate", value: "1000 Hz" },
+                        { label: "Acceleration", value: "50G" },
+                        { label: "Max Speed", value: "650 IPS" }
+                    ]
+                },
+                {
+                    title: "Design",
+                    items: [
+                        { label: "Weight", value: "65g" },
+                        { label: "Dimensions", value: "125 x 67 x 42mm" },
+                        { label: "Buttons", value: "7 programmable" },
+                        { label: "Battery Life", value: "80 hours" }
+                    ]
+                }
+            ],
+            // Wireless Headphones (Product 1)
+            1: [
+                {
+                    title: "Audio Features",
+                    features: [
+                        "Active Noise Cancellation",
+                        "30-hour battery life",
+                        "Quick charge 10 min = 3 hours",
+                        "Premium sound quality",
+                        "Comfortable over-ear design",
+                        "Voice assistant support"
+                    ]
+                },
+                {
+                    title: "Technical Specs",
+                    items: [
+                        { label: "Driver Size", value: "40mm" },
+                        { label: "Frequency Response", value: "20Hz - 20kHz" },
+                        { label: "Battery Life", value: "30 hours" },
+                        { label: "Charging Time", value: "2 hours" }
+                    ]
+                },
+                {
+                    title: "Connectivity",
+                    items: [
+                        { label: "Bluetooth", value: "5.0" },
+                        { label: "Range", value: "10 meters" },
+                        { label: "Codecs", value: "SBC, AAC, aptX" },
+                        { label: "Microphone", value: "Built-in" }
+                    ]
+                }
+            ],
+            // Smart Watch (Product 2)
+            2: [
+                {
+                    title: "Health Features",
+                    features: [
+                        "Heart rate monitoring",
+                        "Sleep tracking",
+                        "Step counter",
+                        "Calorie burn tracking",
+                        "Water resistance 5ATM",
+                        "GPS tracking"
+                    ]
+                },
+                {
+                    title: "Display",
+                    items: [
+                        { label: "Screen Size", value: "1.4 inches" },
+                        { label: "Resolution", value: "360 x 360 pixels" },
+                        { label: "Display Type", value: "AMOLED" },
+                        { label: "Brightness", value: "1000 nits" }
+                    ]
+                },
+                {
+                    title: "Battery & Storage",
+                    items: [
+                        { label: "Battery Life", value: "7 days" },
+                        { label: "Charging Time", value: "2 hours" },
+                        { label: "Storage", value: "4GB" },
+                        { label: "RAM", value: "512MB" }
+                    ]
+                }
+            ],
+            // Bluetooth Speaker (Product 3)
+            3: [
+                {
+                    title: "Audio Features",
+                    features: [
+                        "360-degree sound",
+                        "12-hour battery life",
+                        "Waterproof IPX7",
+                        "Voice assistant ready",
+                        "Party mode pairing",
+                        "Built-in microphone"
+                    ]
+                },
+                {
+                    title: "Technical Specs",
+                    items: [
+                        { label: "Driver Size", value: "2.25 inches" },
+                        { label: "Output Power", value: "20W" },
+                        { label: "Frequency Response", value: "60Hz - 20kHz" },
+                        { label: "Battery Life", value: "12 hours" }
+                    ]
+                },
+                {
+                    title: "Connectivity",
+                    items: [
+                        { label: "Bluetooth", value: "5.0" },
+                        { label: "Range", value: "30 meters" },
+                        { label: "Aux Input", value: "3.5mm" },
+                        { label: "USB", value: "Type-C" }
+                    ]
+                }
+            ]
+        };
+
+        // Return specific specifications if available, otherwise return category-based defaults
+        if (specificationsMap[productId]) {
+            return specificationsMap[productId];
+        }
+
+        // Default specifications based on category
+        const categorySpecs: { [key: string]: SpecificationType[] } = {
+            "Audio": [
+                {
+                    title: "Audio Features",
+                    features: [
+                        "High-quality sound",
+                        "Noise cancellation",
+                        "Long battery life",
+                        "Wireless connectivity",
+                        "Comfortable design",
+                        "Voice assistant support"
+                    ]
+                },
+                {
+                    title: "Technical Specs",
+                    items: [
+                        { label: "Driver Size", value: "40mm" },
+                        { label: "Frequency Response", value: "20Hz - 20kHz" },
+                        { label: "Battery Life", value: "20-30 hours" },
+                        { label: "Bluetooth", value: "5.0" }
+                    ]
+                }
+            ],
+            "Gaming": [
+                {
+                    title: "Gaming Features",
+                    features: [
+                        "High precision sensor",
+                        "Programmable buttons",
+                        "RGB lighting",
+                        "Ergonomic design",
+                        "Fast response time",
+                        "Durable construction"
+                    ]
+                },
+                {
+                    title: "Performance",
+                    items: [
+                        { label: "DPI Range", value: "100 - 16,000" },
+                        { label: "Polling Rate", value: "1000 Hz" },
+                        { label: "Acceleration", value: "40G" },
+                        { label: "Max Speed", value: "400 IPS" }
+                    ]
+                }
+            ],
+            "Wearables": [
+                {
+                    title: "Health Features",
+                    features: [
+                        "Activity tracking",
+                        "Heart rate monitoring",
+                        "Sleep analysis",
+                        "Water resistance",
+                        "Long battery life",
+                        "Smart notifications"
+                    ]
+                },
+                {
+                    title: "Display & Battery",
+                    items: [
+                        { label: "Screen Size", value: "1.3 inches" },
+                        { label: "Resolution", value: "320 x 320 pixels" },
+                        { label: "Battery Life", value: "5-7 days" },
+                        { label: "Water Resistance", value: "5ATM" }
+                    ]
+                }
+            ],
+            "Cables": [
+                {
+                    title: "Cable Features",
+                    features: [
+                        "Fast charging support",
+                        "Data transfer capability",
+                        "Durable construction",
+                        "Compatible with multiple devices",
+                        "Tangle-free design",
+                        "Premium materials"
+                    ]
+                },
+                {
+                    title: "Technical Specs",
+                    items: [
+                        { label: "Length", value: "1-2 meters" },
+                        { label: "Connector Type", value: "USB-C to USB-A" },
+                        { label: "Data Transfer", value: "USB 2.0/3.0" },
+                        { label: "Charging Speed", value: "Up to 2.4A" }
+                    ]
+                }
+            ],
+            "Phone Accessories": [
+                {
+                    title: "Protection Features",
+                    features: [
+                        "Shock absorption",
+                        "Scratch resistance",
+                        "Precise cutouts",
+                        "Easy installation",
+                        "Premium materials",
+                        "Multiple color options"
+                    ]
+                },
+                {
+                    title: "Compatibility",
+                    items: [
+                        { label: "Device Support", value: "iPhone/Android" },
+                        { label: "Material", value: "Silicone/TPU" },
+                        { label: "Thickness", value: "0.8mm" },
+                        { label: "Warranty", value: "1 year" }
+                    ]
+                }
+            ],
+            "Charging": [
+                {
+                    title: "Charging Features",
+                    features: [
+                        "Fast wireless charging",
+                        "Qi-compatible",
+                        "LED indicator",
+                        "Overcharge protection",
+                        "Non-slip surface",
+                        "Compact design"
+                    ]
+                },
+                {
+                    title: "Technical Specs",
+                    items: [
+                        { label: "Output Power", value: "10W/15W" },
+                        { label: "Input", value: "5V/2A" },
+                        { label: "Efficiency", value: "85%" },
+                        { label: "Charging Distance", value: "8mm" }
+                    ]
+                }
+            ],
+            "Computer Accessories": [
+                {
+                    title: "Productivity Features",
+                    features: [
+                        "Ergonomic design",
+                        "Multi-device connectivity",
+                        "Backlit keys",
+                        "Long battery life",
+                        "Compact size",
+                        "Durable construction"
+                    ]
+                },
+                {
+                    title: "Technical Specs",
+                    items: [
+                        { label: "Connectivity", value: "Bluetooth 5.0" },
+                        { label: "Battery Life", value: "6-12 months" },
+                        { label: "Range", value: "10 meters" },
+                        { label: "Compatibility", value: "Windows/Mac/iOS/Android" }
+                    ]
+                }
+            ],
+            "Car Accessories": [
+                {
+                    title: "Car Features",
+                    features: [
+                        "Secure mounting",
+                        "360-degree rotation",
+                        "One-hand operation",
+                        "Universal compatibility",
+                        "Sturdy construction",
+                        "Easy installation"
+                    ]
+                },
+                {
+                    title: "Specifications",
+                    items: [
+                        { label: "Phone Size", value: "Up to 6.5 inches" },
+                        { label: "Mount Type", value: "Dashboard/Vent" },
+                        { label: "Material", value: "ABS Plastic" },
+                        { label: "Weight", value: "150g" }
+                    ]
+                }
+            ],
+            "Office Supplies": [
+                {
+                    title: "Organization Features",
+                    features: [
+                        "Multi-compartment design",
+                        "Cable management",
+                        "Space-saving",
+                        "Durable materials",
+                        "Easy assembly",
+                        "Modern aesthetics"
+                    ]
+                },
+                {
+                    title: "Dimensions",
+                    items: [
+                        { label: "Size", value: "Various sizes" },
+                        { label: "Material", value: "Plastic/Wood" },
+                        { label: "Color Options", value: "Multiple" },
+                        { label: "Weight Capacity", value: "5-10kg" }
+                    ]
+                }
+            ]
+        };
+
+        return categorySpecs[category] || [
+            {
+                title: "General Features",
+                features: [
+                    "High-quality materials",
+                    "Durable construction",
+                    "User-friendly design",
+                    "Reliable performance",
+                    "Good value for money",
+                    "Easy to use"
+                ]
+            }
+        ];
+    };
+
     
     return {
         id: id.toString(),
@@ -131,7 +544,9 @@ function makeProduct(id: number): ProductType {
         brand,
         colors: getColors(id),
         inStock: Math.random() > 0.1,
-        isFreeDelivery: Math.random() > 0.3 // 70% chance of free delivery
+        isFreeDelivery: Math.random() > 0.3, 
+        specifications: getSpecifications(id, category),
+        reviews: getReviews(id)
     };
 }
 

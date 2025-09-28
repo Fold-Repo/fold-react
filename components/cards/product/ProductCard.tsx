@@ -4,9 +4,12 @@ import React from "react";
 import Link from "next/link";
 import {  formatCurrency } from "@/lib";
 import { ProductType } from "@/types";
-import { RatingStars, Button } from "@/components";
+import { RatingStars, Button, WishlistButton } from "@/components";
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 import { Image } from "@heroui/react";
+import { useCart } from "@/store";
+import toast from "react-hot-toast";
+import { addToCartWithHelper } from "@/utils/helper";
 
 interface Props {
     product: ProductType;
@@ -15,19 +18,34 @@ interface Props {
 const ProductCard: React.FC<Props> = ({ product }) => {
 
     const { id, name, price, category, ratingCount, image, inStock } = product;
+    const { addItem } = useCart();
 
     const handleAddToCart = (e: React.MouseEvent) => {
         e.preventDefault();
-        console.log("Add to cart:", product);
+        addToCartWithHelper(
+            addItem,
+            product,
+            1,
+            undefined, 
+            toast.success
+        );
     };
 
     return (
         <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 
-            dark:border-gray-700 overflow-hidden p-1.5 md:p-3">
+            dark:border-gray-700 overflow-hidden p-1.5 md:p-2.5">
 
             {/* ================= PRODUCT IMAGE ================= */}
-            <Image src={image} alt={name} width={500}
-            className="w-full aspect-[9/7] object-cover rounded-lg" />
+            <div className="relative">
+
+                <Image isZoomed src={image} alt={name} width={800}
+                    className="w-full aspect-[9/7] object-cover" radius="md" />
+                
+                {/* ================= WISHLIST BUTTON ================= */}
+                <WishlistButton className="absolute top-2 right-2 z-10" 
+                    product={product}  size="md"  />
+
+            </div>
 
             {/* ================= PRODUCT INFO ================= */}
             <div className="space-y-2 pt-3">

@@ -66,6 +66,13 @@ const ColorSwatch: React.FC<ColorSwatchProps> = ({
         }
     }, [trigger, handleColorChange]);
 
+    const handleDropdownChange = useCallback((value: string) => {
+        const optionIndex = options.findIndex(option => option.color === value);
+        if (optionIndex !== -1) {
+            handleColorChange(options[optionIndex], optionIndex);
+        }
+    }, [options, handleColorChange]);
+
     // Circle variant (original)
     if (variant === "circle") {
         return (
@@ -129,17 +136,10 @@ const ColorSwatch: React.FC<ColorSwatchProps> = ({
         const selectedOption = options[activeIndex];
         const selectedValue = selectedOption ? selectedOption.color : "";
 
-        const handleDropdownChange = useCallback((value: string) => {
-            const optionIndex = options.findIndex(option => option.color === value);
-            if (optionIndex !== -1) {
-                handleColorChange(options[optionIndex], optionIndex);
-            }
-        }, [options, handleColorChange]);
-
         return (
-            <div className={cn("flex items-center gap-3 text-xs font-medium text-gray-800 dark:text-gray-200", className)}>
+            <div className={cn("flex items-center gap-3", className)}>
 
-                {showLabel && <span>{label}</span>}
+                {showLabel && <span className="font-medium text-sm text-gray-500">{label}</span>}
 
                 <Dropdown
                     options={dropdownOptions}

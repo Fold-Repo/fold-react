@@ -1,8 +1,22 @@
 export interface ProductColor {
+    id?: string;
     color: string;
     image: string;
     label: string;
 }
+
+export interface SpecificationItem {
+    label: string;
+    value: string;
+}
+
+export interface SpecificationType {
+    title: string;
+    items?: SpecificationItem[];
+    features?: string[];
+}
+
+import { Review } from "./review";
 
 export interface ProductType {
     id: string;
@@ -18,6 +32,8 @@ export interface ProductType {
     colors?: ProductColor[];
     inStock: boolean;
     isFreeDelivery?: boolean;
+    specifications?: SpecificationType[];
+    reviews?: Review[];
 }
 
 export interface ProductMetaSummary {

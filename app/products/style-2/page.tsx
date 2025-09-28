@@ -1,4 +1,4 @@
-import { ProductsViewTwo } from "@/views/products";
+import { ProductsViewTwo } from "@/views";
 import { Metadata } from "next";
 import React from "react"
 

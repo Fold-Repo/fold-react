@@ -2,6 +2,7 @@
 import { TopPostCard, PostCard, PostCardTwo, PostCardThree, RelatedArticleCard, RelatedArticleTwo, TrendingPostCard } from "./post";
 import { ProductCard, ProductCardTwo } from "./product";
 import ReviewCard from "./review/ReviewCard";
+import ReviewCardTwo from "./review/ReviewCardTwo";
 
 export {
     TopPostCard,
@@ -13,5 +14,6 @@ export {
     TrendingPostCard,
     ProductCard,
     ProductCardTwo,
-    ReviewCard
+    ReviewCard,
+    ReviewCardTwo
 }

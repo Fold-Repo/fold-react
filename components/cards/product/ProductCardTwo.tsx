@@ -4,9 +4,12 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { formatCurrency } from "@/lib";
 import { ProductType } from "@/types";
-import { RatingStars, Button, ColorSwatch } from "@/components";
+import { RatingStars, Button, ColorSwatch, WishlistButton } from "@/components";
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 import { Image } from "@heroui/react";
+import { useCart } from "@/store";
+import toast from "react-hot-toast";
+import { addToCartWithHelper } from "@/utils/helper";
 
 interface ProductCardTwoProps {
     product: ProductType;
@@ -15,24 +18,41 @@ interface ProductCardTwoProps {
 const ProductCardTwo: React.FC<ProductCardTwoProps> = ({ product }) => {
 
     const { id, name, price, originalPrice, rating, ratingCount, image, description, colors, inStock } = product;
+    const { addItem } = useCart();
 
     const [currentImage, setCurrentImage] = useState(image);
+    const [selectedColor, setSelectedColor] = useState<string | undefined>();
 
-    const handleColorChange = (option: { image: string }) => {
+    const handleColorChange = (option: { image: string; color: string }) => {
         setCurrentImage(option.image);
+        setSelectedColor(option.color);
     };
 
     const handleAddToCart = (e: React.MouseEvent) => {
         e.preventDefault();
-        console.log("Add to cart:", product);
+        addToCartWithHelper(
+            addItem,
+            product,
+            1,
+            selectedColor,
+            toast.success
+        );
     };
 
     return (
         <div className="flex flex-col sm:flex-row gap-6">
 
             {/* ================= PRODUCT IMAGE ================= */}
-            <Image src={currentImage} alt={name} width={600}
-            className="sm:w-64 aspect-9/7 object-cover rounded-lg shadow" />
+            <div className="relative">
+
+                <Image isZoomed src={currentImage} alt={name} width={600}
+                    className="sm:w-64 aspect-9/7 sm:aspect-9/8 object-cover rounded-lg shadow" />
+
+                {/* ================= WISHLIST BUTTON ================= */}
+                <WishlistButton className="absolute top-2 right-2 z-10"
+                product={product} size="md" />
+
+            </div>
 
             {/* ================= PRODUCT INFO ================= */}
             <div className="flex flex-col gap-2 flex-1">
@@ -81,10 +101,10 @@ const ProductCardTwo: React.FC<ProductCardTwoProps> = ({ product }) => {
                 </div>
 
                 {/* ================= ADD TO CART BUTTON ================= */}
-                <Button 
-                    onClick={handleAddToCart} 
+                <Button
+                    onClick={handleAddToCart}
                     variant="brand"
-                    size="sm" 
+                    size="sm"
                     className="!py-2 max-w-full sm:max-w-xs text-white mt-2"
                     leftIcon={<ShoppingCartIcon className="w-4 h-4" />}
                     disabled={!inStock}

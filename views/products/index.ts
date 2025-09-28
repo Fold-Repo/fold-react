@@ -11,4 +11,4 @@ export { default as ProductDetailsViewSix } from "./details/ProductDetailsViewSi
 export { default as ProductDetailsViewSeven } from "./details/ProductDetailsViewSeven";
 
 // Product Details Sections
-export { ProductReviews, SimilarProduct } from "./details/sections";
+export { ProductReviews, SimilarProduct, CustomerReviews, Description, ReturnPolicy, ShippingReturn } from "./details/sections";
