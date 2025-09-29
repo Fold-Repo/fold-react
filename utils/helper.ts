@@ -34,24 +34,49 @@ export function getDiscountPercentage(originalPrice: number | string, discounted
  * @param obj - The object to clean.
  * @returns A new object without empty or null fields.
  */
-export const removeEmptyFields = (obj: Record<string, any>): Record<string, any> => {
+export const removeEmptyFields = (obj: Record<string, unknown>): Record<string, unknown> => {
     return Object.fromEntries(
-        Object.entries(obj).filter(([_, v]) => v !== "" && v !== null)
+        Object.entries(obj).filter(([, v]) => v !== "" && v !== null)
     );
 };
 
+
 /**
- * Merges product images and color swatch images into a unique image list.
+ * Adds a product to cart with proper color handling and navigation.
  * 
- * @param images - Regular product image URLs.
- * @param colors - Array of color objects containing `image` URLs.
- * @returns An array of unique image URLs.
+ * @param addItem - The cart add function from useCart hook
+ * @param product - The product to add to cart
+ * @param quantity - Quantity to add (default: 1)
+ * @param selectedColor - Selected color object or color ID
+ * @param toast - Toast function for notifications
+ * @param navigate - Navigation function (optional)
+ * @param shouldNavigate - Whether to navigate to checkout after adding
  */
-export const getUniqueProductImages = (
-    images: string[] = [],
-    colors: { image: string }[] = []
-): string[] => {
-    const colorImages = colors.map((c) => c.image);
-    const filteredImages = images.filter((img) => !colorImages.includes(img));
-    return [...filteredImages, ...colorImages];
+export const addToCartWithHelper = (
+    addItem: (product: any, quantity: number, selectedColor?: any, selectedSize?: string) => void,
+    product: any,
+    quantity: number = 1,
+    selectedColor?: any,
+    toast?: (message: string) => void,
+    navigate?: (path: string) => void,
+    shouldNavigate: boolean = false
+) => {
+    if (!product || !product.inStock) {
+        toast?.("Product is out of stock");
+        return;
+    }
+
+    // Pass the full color object only
+    addItem(product, quantity, selectedColor);
+    
+    const colorText = selectedColor?.label || "";
+    const message = colorText 
+        ? `${product.name} (${colorText}) added to cart`
+        : `${product.name} added to cart`;
+    
+    toast?.(message);
+    
+    if (shouldNavigate && navigate) {
+        navigate("/pages/cart/checkout");
+    }
 };

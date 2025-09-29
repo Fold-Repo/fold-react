@@ -1,14 +1,17 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit"
 import { persistStore, persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER } from "redux-persist"
 import storageSession from "redux-persist/lib/storage/session"
+import { cartReducer, wishlistReducer } from "./slices"
 
 const rootReducer = combineReducers({
+    cart: cartReducer,
+    wishlist: wishlistReducer,
 })
 
 const persistConfig = {
     key: "root",
     storage: storageSession,
-    whitelist: [], 
+    whitelist: ["cart", "wishlist"], 
 }
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
@@ -27,3 +30,6 @@ export const persistor = persistStore(store)
 
 export type RootState = ReturnType<typeof store.getState>
 export type AppDispatch = typeof store.dispatch
+
+export { useCart } from "./hooks/useCart";
+export { useWishlist } from "./hooks/useWishlist";

@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { getPostById, getPostMetas, getPosts, getRelatedPost, getLatestPosts, getOtherPosts } from "./post";
 
-export const useGetPosts = (params: {}) => {
+export const useGetPosts = (params: Record<string, unknown>) => {
     const { data, isLoading, isFetching, error } = useQuery({
         queryKey: ["posts", params],
         queryFn: () => getPosts(params),

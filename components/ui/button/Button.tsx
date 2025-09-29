@@ -14,7 +14,7 @@ type ButtonVariant =
     | "warning"
     | "danger";
 
-type ButtonSize = "sm" | "md" | "lg" | "xl";
+type ButtonSize = "xs" | "sm" | "md" | "lg" | "xl";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     variant?: ButtonVariant;
@@ -46,6 +46,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     ) => {
 
         const sizeClasses: Record<ButtonSize, string> = {
+            xs: "px-3 h-9 text-xs",
             sm: "px-3 py-1.5 text-xs",
             md: "px-4 py-2.5 text-xs",
             lg: "px-6 py-3 text-xs",

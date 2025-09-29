@@ -1,8 +1,6 @@
 "use client"
 
 import React from "react"
-import { Button } from "@/components/ui/button/Button"
-import { Input, TextArea } from "@/components/ui"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { ContactBannerTwo, ContactForm, ContactInfoCard } from "./components"

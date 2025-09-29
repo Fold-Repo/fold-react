@@ -4,7 +4,7 @@ import React, { useEffect, useCallback } from "react";
 import toast from "react-hot-toast";
 
 const InternetCheck: React.FC = () => {
-	const handleToast = useCallback((message: string, type: "warning" | "error") => {
+	const handleToast = useCallback((message: string) => {
 		toast.dismiss();
 		toast(message, {
 			position: "bottom-center",
@@ -12,8 +12,8 @@ const InternetCheck: React.FC = () => {
 		});
 	}, []);
 
-	const InternetRestored = useCallback(() => handleToast("Internet Restored 🚀", "warning"), [handleToast]);
-	const NoInternetConnection = useCallback(() => handleToast("No/Bad Internet Connection 😭", "error"), [handleToast]);
+	const InternetRestored = useCallback(() => handleToast("Internet Restored 🚀"), [handleToast]);
+	const NoInternetConnection = useCallback(() => handleToast("No/Bad Internet Connection 😭"), [handleToast]);
 
 	useEffect(() => {
 		const handleOnlineEvent = () => InternetRestored();

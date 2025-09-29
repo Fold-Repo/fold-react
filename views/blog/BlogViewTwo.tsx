@@ -1,7 +1,7 @@
 "use client"
 
-import { PostCard, PostCardThree, TopPostCard } from "@/components/cards"
-import { PostListSkeleton, PostCardThreeListSkeleton, TopPostSkeleton } from "@/components/skeleton"
+import { PostCardThree, TopPostCard } from "@/components/cards"
+import { PostCardThreeListSkeleton, TopPostSkeleton } from "@/components/skeleton"
 import { Footer } from "@/components/footer"
 import { Header } from "@/components/header"
 import React from "react"

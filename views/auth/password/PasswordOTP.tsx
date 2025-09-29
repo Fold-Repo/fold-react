@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui"
 import OtpInput from "react-otp-input";
 import Link from "next/link"
-import React, { useState } from "react"
+import React from "react"
 import { OtpSchema } from "@/lib/schema";
 import { InferType } from "yup";
 import { useForm, Controller } from "react-hook-form"

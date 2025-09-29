@@ -3,15 +3,18 @@
 import Link from "next/link"
 import Image from "next/image"
 import React, { useState } from "react"
-import { Bars3Icon } from "@heroicons/react/24/outline"
+import { Bars3Icon, HeartIcon } from "@heroicons/react/24/outline"
 import { HEADER_ACTIONS, NAV_GROUPS } from "@/constants/nav"
 import DesktopDropdown from "./DesktopDropdown"
 import MobileMenu from "./MobileMenu"
 import SearchBar from "./SearchBar"
+import { useCart, useWishlist } from "@/store"
 
 const Header: React.FC = () => {
 
     const [isMobileOpen, setIsMobileOpen] = useState(false)
+    const { total: cartTotal } = useCart()
+    const { total: wishlistTotal } = useWishlist()
 
     return (
         <>
@@ -27,6 +30,7 @@ const Header: React.FC = () => {
 
             {/*  ================= Header ================= */}
             <header className="bg-white dark:bg-gray-900 py-4">
+
                 <nav className="container flex items-center justify-between">
 
                     {/*  ================= Logo ================= */}
@@ -59,11 +63,22 @@ const Header: React.FC = () => {
                             <span>{HEADER_ACTIONS.login.label}</span>
                         </Link>
 
-                        <Link href={HEADER_ACTIONS.cart.href} className="text-gray-900 dark:text-white flex items-center">
+                        {/* ================= WISHLIST ================= */}
+                        <Link href={HEADER_ACTIONS.wishlist.href} className="text-gray-900 dark:text-white flex items-center relative">
+                            <HeartIcon className="size-5 shrink-0" />
+                            <span className="absolute -top-2 -right-2 bg-red-600 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">
+                                {wishlistTotal}
+                            </span>
+                        </Link>
+
+                        {/* ================= CART ================= */}
+                        <Link href={HEADER_ACTIONS.cart.href} className="text-gray-900 dark:text-white flex items-center relative">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true" className="size-5 shrink-0 ">
                                 <path d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007ZM8.625 10.5a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm7.5 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z" strokeLinecap="round" strokeLinejoin="round" />
                             </svg>
-                            <span className="ml-1 text-sm font-medium">0</span>
+                            <span className="absolute -top-2 -right-2 bg-red-600 text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center">
+                                {cartTotal}
+                            </span>
                         </Link>
 
                         {/*  ================= Mobile Open Menu ================= */}
@@ -76,11 +91,12 @@ const Header: React.FC = () => {
                     </div>
 
                 </nav>
+
             </header>
 
             {/*  ================= Mobile Nav ================= */}
             <MobileMenu isOpen={isMobileOpen} onClose={() => setIsMobileOpen(false)} />
-                
+
         </>
     )
 }

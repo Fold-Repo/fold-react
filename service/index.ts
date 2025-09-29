@@ -1,4 +1,6 @@
-import { useGetPosts, useGetPostById, useGetPostMetas, useGetLatestPosts, useGetOtherPosts, useGetRelatedPosts } from "./post/postFn";
+import { useGetPosts, useGetPostById, useGetPostMetas, useGetLatestPosts, 
+useGetOtherPosts, useGetRelatedPosts } from "./post/postFn";
+export * from "./product/productFn";
 export * from "./hooks";
 
 export {
@@ -7,5 +9,5 @@ export {
     useGetPostMetas,
     useGetLatestPosts,
     useGetOtherPosts,
-    useGetRelatedPosts
+    useGetRelatedPosts,
 }
