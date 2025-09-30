@@ -7,11 +7,11 @@ import { Breadcrumb, CheckoutAuth, DeliveryInformation, CheckoutPayment, OrderSu
 import { useCart } from "@/store";
 
 const CheckoutView = () => {
+
     const { items } = useCart();
 
     const handlePlaceOrder = () => {
         console.log("Place order clicked");
-        // Handle place order logic here
     };
 
     return (

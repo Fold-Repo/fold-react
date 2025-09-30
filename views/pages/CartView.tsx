@@ -21,7 +21,7 @@ const CartView = () => {
     };
 
     const handleCheckout = () => {
-        router.push("checkout");
+        router.push("/pages/cart/checkout");
     };
 
     const handleApplyPromoCode = (code: string) => {
