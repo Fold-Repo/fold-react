@@ -2,7 +2,7 @@ import { LoginView, RegisterVIew, PasswordView } from "./auth";
 import { ContactView, ContactTwoView, ContactThreeView } from "./contacts";
 import { BlogView, BlogViewTwo, BlogDetailView, BlogDetailsTwoView, BlogDetailsThreeView, BlogDetailFourView } from "./blog";
 import { ProductsView, ProductsViewTwo, ProductDetailsView, ProductDetailsViewTwo, ProductDetailsViewThree, ProductDetailsViewFour, ProductDetailsViewFive, ProductDetailsViewSix, ProductDetailsViewSeven } from "./products";
-import { WishlistView } from "./pages";
+import { WishlistView, PaymentView, CartView, CartViewTwo, CheckoutView, PaymentV2View } from "./pages";
 
 export {
 
@@ -32,5 +32,10 @@ export {
     ProductDetailsViewSeven,
 
     WishlistView,
+    PaymentView,
+    CartView,
+    CartViewTwo,
+    CheckoutView,
+    PaymentV2View,
     
 }
