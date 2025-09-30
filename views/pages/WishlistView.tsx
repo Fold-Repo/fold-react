@@ -1,11 +1,11 @@
 "use client";
 
-import { Footer } from '@/components/footer'
-import { Header } from '@/components/header'
-import { ProductCard, EmptyState } from '@/components'
-import { useWishlist } from '@/store'
-import { formatCurrency } from '@/lib'
-import React from 'react'
+import { Footer } from "@/components/footer"
+import { Header } from "@/components/header"
+import { ProductCard, EmptyState } from "@/components"
+import { useWishlist } from "@/store"
+import { formatCurrency } from "@/lib"
+import React from "react"
 
 const WishlistView = () => {
 

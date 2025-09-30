@@ -5,3 +5,4 @@ export { default as RatingStars } from "./RatingStars";
 export { default as Tab } from "./Tab";
 export { default as RatingBreakdown } from "./RatingBreakdown";
 export { default as EmptyState } from "./EmptyState";
+export { Stepper } from "./Stepper";

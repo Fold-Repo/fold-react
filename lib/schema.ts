@@ -21,3 +21,14 @@ export const newPasswordSchema = Yup.object({
         .oneOf([Yup.ref("password")], "Passwords must match")
         .required("Confirm Password is required"),
 })
+
+export const authSchema = Yup.object({
+    email: Yup
+        .string()
+        .email("Please enter a valid email address")
+        .required("Email is required"),
+    password: Yup
+        .string()
+        .min(6, "Password must be at least 6 characters")
+        .required("Password is required"),
+});

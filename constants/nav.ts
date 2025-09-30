@@ -45,9 +45,10 @@ export const NAV_GROUPS: NavGroup[] = [
             { label: "Checkout", href: "/pages/cart/checkout" },
             { label: "Wishlist", href: "/pages/wishlist" },
             { isDivider: true },
-            { label: "Payment v1", href: "/pages/payment/payment" },
+            { label: "Payment v1", href: "/pages/payment" },
             { isDivider: true },
-            { label: "Payment v2", href: "/pages/payment-2" },
+            { label: "Payment v2", href: "/pages/payment/v2" },
+            { isDivider: true },
             { label: "Register", href: "/signup" },
             { label: "Login", href: "/signin" },
             { label: "Forgot Password", href: "/auth/forgot-password" }
