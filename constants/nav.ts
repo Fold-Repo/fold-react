@@ -18,7 +18,12 @@ export const NAV_GROUPS: NavGroup[] = [
     {
         id: "about",
         label: "About",
-        href: "/about"
+        items: [
+            { label: "About 1", href: "/about" },
+            { label: "About 2", href: "/about/about-2" },
+            { label: "About 3", href: "/about/about-3" },
+            { label: "About 4", href: "/about/about-4" }
+        ]
     },
     {
         id: "products",

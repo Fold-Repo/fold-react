@@ -1,4 +1,5 @@
 import { LoginView, RegisterVIew, PasswordView } from "./auth";
+import { AboutView, AboutTwoView, AboutThreeView, AboutFourView } from "./about";
 import { ContactView, ContactTwoView, ContactThreeView } from "./contacts";
 import { BlogView, BlogViewTwo, BlogDetailView, BlogDetailsTwoView, BlogDetailsThreeView, BlogDetailFourView } from "./blog";
 import { ProductsView, ProductsViewTwo, ProductDetailsView, ProductDetailsViewTwo, ProductDetailsViewThree, ProductDetailsViewFour, ProductDetailsViewFive, ProductDetailsViewSix, ProductDetailsViewSeven } from "./products";
@@ -9,6 +10,11 @@ export {
     LoginView,
     RegisterVIew,
     PasswordView,
+
+    AboutView,
+    AboutTwoView,
+    AboutThreeView,
+    AboutFourView,
 
     ContactView,
     ContactTwoView,
