@@ -7,7 +7,7 @@ import { StarIcon } from "@heroicons/react/24/solid";
 interface RatingStarsProps {
     rating: number;
     maxRating?: number;
-    variant?: "filter" | "display" | "single";
+    variant?: "filter" | "display" | "single" | "compact";
     showCount?: boolean;
     count?: number;
     size?: "sm" | "md" | "lg";
@@ -31,8 +31,8 @@ const RatingStars: React.FC<RatingStarsProps> = ({
 
     const textSizeClasses = {
         sm: "text-xs",
-        md: "text-sm",
-        lg: "text-base"
+        md: "text-xs",
+        lg: "text-sm"
     };
 
     const renderStars = () => {
@@ -58,7 +58,7 @@ const RatingStars: React.FC<RatingStarsProps> = ({
             <div className={cn("flex items-center gap-1", className)}>
                 <StarIcon className={cn("text-yellow-400 fill-current", sizeClasses[size])} />
                 {showCount && (
-                    <span className={cn("font-medium", textSizeClasses[size])}>
+                    <span className={cn("text-gray-600 dark:text-gray-300 text-xs", textSizeClasses[size])}>
                         {count} <span className="hidden lg:inline-flex">ratings</span>
                     </span>
                 )}
@@ -70,6 +70,17 @@ const RatingStars: React.FC<RatingStarsProps> = ({
         return (
             <div className={cn("flex items-center gap-0.5", className)}>
                 {renderStars()}
+            </div>
+        );
+    }
+
+    if (variant === "compact") {
+        return (
+            <div className={cn("flex items-center gap-1", className)}>
+                <StarIcon className={cn("text-yellow-400 fill-current", sizeClasses[size])} />
+                <span className={cn("text-gray-600 dark:text-gray-400", textSizeClasses[size])}>
+                    {rating} ({count})
+                </span>
             </div>
         );
     }

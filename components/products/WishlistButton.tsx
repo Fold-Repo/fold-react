@@ -32,18 +32,18 @@ const WishlistButton: React.FC<WishlistButtonProps> = ({ product, className, siz
     };
 
     const sizeClasses = {
-        sm: "w-6 h-6 text-sm",
+        sm: "w-6 h-6 text-xs",
         md: "w-7 h-7 text-base",
         lg: "w-10 h-10 text-lg"
     };
 
     const variantClasses = {
         solid: isInWishlist 
-            ? "bg-red-500 text-white hover:bg-red-600" 
-            : "bg-gray-100 text-gray-600 hover:bg-gray-200",
+            ? "bg-red-500 text-white hover:bg-red-600 dark:bg-red-600 dark:hover:bg-red-700" 
+            : "bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700",
         outline: isInWishlist
-            ? "bg-white border border-red-500 text-red-500"
-            : "bg-white border border-gray-400 dark:border-gray-600 text-gray-500 dark:text-gray-100 "
+            ? "bg-white dark:bg-gray-800 border border-red-500 dark:border-red-400 text-red-500 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900/20"
+            : "bg-white dark:bg-gray-800 border border-gray-400 dark:border-gray-600 text-gray-500 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
     };
 
 
@@ -53,18 +53,21 @@ const WishlistButton: React.FC<WishlistButtonProps> = ({ product, className, siz
             title={isInWishlist ? "Remove from wishlist" : "Add to wishlist"}
             className={cn(
                 "cursor-pointer rounded-full flex items-center justify-center transition-all duration-200 flex-shrink-0",
-                "focus:outline-none",
+                "focus:outline-none focus:ring-2 focus:ring-red-500/20 dark:focus:ring-red-400/20",
+                "shadow-sm dark:shadow-md",
                 sizeClasses[size],
                 variantClasses[variant],
                 className
             )}>
             {isInWishlist ? (
                 <HeartIconSolid className={cn(
-                    size === "sm" ? "size-5" : size === "lg" ? "size-5" : "size-4"
+                    "text-current",
+                    size === "sm" ? "size-4" : size === "lg" ? "size-5" : "size-4"
                 )} />
             ) : (
                 <HeartIcon className={cn(
-                    size === "sm" ? "size-5" : size === "lg" ? "size-5" : "size-4"
+                    "text-current",
+                    size === "sm" ? "size-4" : size === "lg" ? "size-5" : "size-4"
                 )} />
             )}
 

@@ -1,0 +1,5 @@
+export { FeaturesSection } from "./FeaturesSection"
+export { CategoriesSection } from "./CategoriesSection"
+export { FlashSalesSection } from "./FlashSalesSection"
+export { ExploreCollectionSection } from "./ExploreCollectionSection"
+export { TestimonialsSection } from "./TestimonialsSection"

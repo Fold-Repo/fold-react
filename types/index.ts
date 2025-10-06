@@ -5,4 +5,6 @@ export * from "./cart";
 export * from "./wishlist";
 export * from "./payment";
 export * from "./auth";
+export * from "./categories";
+export * from "./service";
 

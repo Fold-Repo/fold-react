@@ -32,6 +32,7 @@ export interface ProductType {
     colors?: ProductColor[];
     inStock: boolean;
     isFreeDelivery?: boolean;
+    isNew?: boolean;
     specifications?: SpecificationType[];
     reviews?: Review[];
 }

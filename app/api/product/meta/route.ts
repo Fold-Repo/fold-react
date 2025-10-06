@@ -1,16 +1,31 @@
 import { NextResponse } from "next/server";
 import { products } from "@/data";
+import { home1TrendingProducts, home1PopularProducts, home1CollectionsProducts } from "@/data/home-1";
+import { home2BestCategoriesProducts, home2PopularProducts } from "@/data/home-2";
+import { home3DealsProducts, home3SpecialProducts } from "@/data/home-3";
 import { ProductMetaSummary } from "@/types";
 
 export async function GET() {
     
+    // Combine all products including home-1 and home-2 products
+    const allProducts = [
+        ...products,
+        ...home1TrendingProducts,
+        ...home1PopularProducts,
+        ...home1CollectionsProducts,
+        ...home2BestCategoriesProducts,
+        ...home2PopularProducts,
+        ...home3DealsProducts,
+        ...home3SpecialProducts
+    ];
+
     const categoryCounts = new Map<string, number>();
     const brandCounts = new Map<string, number>();
 
     let minPrice = Infinity;
     let maxPrice = -Infinity;
 
-    for (const product of products) {
+    for (const product of allProducts) {
 
         if (product.category) {
             categoryCounts.set(product.category, (categoryCounts.get(product.category) || 0) + 1);
@@ -42,7 +57,7 @@ export async function GET() {
             max: maxPrice === -Infinity ? 0 : maxPrice 
         },
         
-        total: products.length,
+        total: allProducts.length,
     };
 
     return NextResponse.json(summary);

@@ -1,4 +1,7 @@
 import { ProductType, SpecificationType, Review } from "@/types";
+import { home1TrendingProducts, home1PopularProducts, home1CollectionsProducts } from "./home-1";
+import { home2BestCategoriesProducts, home2PopularProducts } from "./home-2";
+import { home3DealsProducts, home3SpecialProducts } from "./home-3";
 
 const categories = [
     "Audio",
@@ -550,4 +553,17 @@ function makeProduct(id: number): ProductType {
     };
 }
 
-export const products: ProductType[] = Array.from({ length: 16 }, (_, idx) => makeProduct(idx + 1));
+// Generate main products (1-16)
+const mainProducts = Array.from({ length: 16 }, (_, idx) => makeProduct(idx + 1));
+
+// Combine all products: main products + home-1 products + home-2 products
+export const products: ProductType[] = [
+    ...mainProducts,
+    ...home1TrendingProducts,
+    ...home1PopularProducts,
+    ...home1CollectionsProducts,
+    ...home2BestCategoriesProducts,
+    ...home2PopularProducts,
+    ...home3DealsProducts,
+    ...home3SpecialProducts
+];
