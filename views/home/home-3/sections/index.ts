@@ -1,0 +1,7 @@
+export { Stats } from "./Stats"
+export { Collections } from "./Collections"
+export { FlashSales } from "./FlashSales"
+export { DealsYouCantMiss } from "./DealsYouCantMiss"
+export { SpecialProducts } from "./SpecialProducts"
+export { ShopByRoom } from "./ShopByRoom"
+export { ReadyToRedecorate } from "./ReadyToRedecorate"

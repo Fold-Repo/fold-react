@@ -97,6 +97,87 @@ export const ProductCardTwoSkeleton: React.FC<{ className?: string }> = ({ class
     );
 };
 
+// ================= PRODUCT CARD THREE SKELETON =================
+export const ProductCardThreeSkeleton: React.FC = () => {
+    return (
+        <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden p-1.5 md:p-3 flex flex-col">
+            
+            {/* ================= PRODUCT IMAGE ================= */}
+            <SkeletonBox className="w-full aspect-square object-cover object-top rounded-lg" />
+
+            {/* ================= PRODUCT INFO ================= */}
+            <div className="space-y-1 md:space-y-2 pt-3">
+
+                {/* ================= PRODUCT NAME ================= */}
+                <SkeletonBox height="14px" width="100%" />
+
+                {/* ================= RATING ================= */}
+                <div className="flex items-center gap-2">
+                    <SkeletonCircle width="16px" height="16px" />
+                    <SkeletonBox height="12px" width="64px" />
+                </div>
+
+                {/* ================= PRICE ================= */}
+                <div className="flex items-end gap-2">
+                    <SkeletonBox height="12px" width="48px" />
+                    <SkeletonBox height="14px" width="48px" />
+                </div>
+
+            </div>
+
+            {/* ================= ADD TO CART BUTTON ================= */}
+            <div className="pt-3">
+                <SkeletonBox height="32px" width="100%" />
+            </div>
+
+        </div>
+    );
+};
+
+// ================= PRODUCT CARD FOUR SKELETON =================
+export const ProductCardFourSkeleton: React.FC = () => {
+    return (
+        <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden p-1.5 md:p-3 flex flex-col">
+
+            {/* ================= PRODUCT IMAGE ================= */}
+            <SkeletonBox className="w-full aspect-9/8 object-cover object-top rounded-lg" />
+
+            {/* ================= PRODUCT INFO ================= */}
+            <div className="flex flex-col space-y-1.5 flex-grow pt-3">
+
+                {/* ================= CATEGORY AND RATING ================= */}
+                <div className="inline-flex flex-wrap items-center justify-between gap-2">
+                    <SkeletonBox height="12px" width="64px" />
+                    <div className="flex items-center gap-1">
+                        <SkeletonCircle width="12px" height="12px" />
+                        <SkeletonBox height="12px" width="32px" />
+                    </div>
+                </div>
+
+                {/* ================= PRODUCT NAME ================= */}
+                <SkeletonBox height="14px" width="100%" />
+
+                {/* ================= STOCK STATUS ================= */}
+                <SkeletonBox height="12px" width="80px" />
+
+            </div>
+
+            {/* ================= PRICE AND ACTIONS ================= */}
+            <div className="flex items-center justify-between border-t border-gray-200 dark:border-gray-700 py-3 mt-3">
+
+                <SkeletonBox height="14px" width="48px" />
+
+                <div className="flex items-center gap-3">
+                    <SkeletonCircle width="16px" height="16px" />
+                    <SkeletonCircle width="16px" height="16px" />
+                </div>
+
+            </div>
+
+        </div>
+    );
+};
+
 export const ProductFilterSkeleton: React.FC = () => {
     return (
         <div className="space-y-8">
@@ -187,6 +268,156 @@ export const ProductFilterSkeleton: React.FC = () => {
 
                 </div>
             </div>
+        </div>
+    );
+};
+
+// ================= PRODUCT CARD FIVE SKELETON =================
+export const ProductCardFiveSkeleton: React.FC = () => {
+    return (
+        <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden p-1.5 md:p-3 flex flex-col">
+            
+            {/* ================= PRODUCT IMAGE ================= */}
+            <SkeletonBox className="w-full aspect-square object-cover object-top rounded-lg" />
+            
+            {/* ================= PRODUCT INFO ================= */}
+            <div className="space-y-2 pt-3">
+                {/* ================= CATEGORY AND RATING ================= */}
+                <div className="flex justify-between gap-2 flex-wrap items-center">
+                    <SkeletonBox height="12px" width="64px" />
+                    <div className="flex items-center gap-1">
+                        <SkeletonCircle width="16px" height="16px" />
+                        <SkeletonBox height="12px" width="32px" />
+                    </div>
+                </div>
+
+                {/* ================= PRODUCT NAME ================= */}
+                <SkeletonBox height="16px" width="100%" />
+
+                {/* ================= PRICE ================= */}
+                <SkeletonBox height="16px" width="64px" />
+
+                {/* ================= ADD TO CART BUTTON ================= */}
+                <SkeletonBox height="32px" width="100%" />
+            </div>
+
+        </div>
+    );
+};
+
+// ================= PRODUCT CARD SIX SKELETON =================
+export const ProductCardSixSkeleton: React.FC = () => {
+    return (
+        <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden p-1.5 md:p-3 flex flex-col">
+            
+            {/* ================= FLASH SALE BADGE ================= */}
+            <div className="relative">
+                <SkeletonBox className="w-full aspect-square object-cover object-top rounded-lg" />
+                <div className="absolute top-2 left-2">
+                    <SkeletonBox height="20px" width="60px" className="rounded-full" />
+                </div>
+            </div>
+            
+            {/* ================= PRODUCT INFO ================= */}
+            <div className="space-y-2 pt-3">
+                {/* ================= RATING ================= */}
+                <div className="flex items-center gap-1">
+                    <SkeletonCircle width="16px" height="16px" />
+                    <SkeletonBox height="12px" width="32px" />
+                </div>
+
+                {/* ================= PRODUCT NAME ================= */}
+                <SkeletonBox height="16px" width="100%" />
+
+                {/* ================= PRICE ================= */}
+                <SkeletonBox height="16px" width="64px" />
+
+                {/* ================= ADD TO CART BUTTON ================= */}
+                <SkeletonBox height="32px" width="100%" />
+            </div>
+
+        </div>
+    );
+};
+
+// ================= PRODUCT CARD SEVEN SKELETON =================
+export const ProductCardSevenSkeleton: React.FC = () => {
+    return (
+        <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden p-1.5 md:p-3 flex flex-col">
+            
+            {/* ================= PRODUCT IMAGE ================= */}
+            <div className="relative">
+                <SkeletonBox className="w-full aspect-square object-cover object-top rounded-lg" />
+                
+                {/* ================= WISHLIST BUTTON ================= */}
+                <div className="absolute top-2 right-2">
+                    <SkeletonCircle width="28px" height="28px" />
+                </div>
+            </div>
+
+            <div className="flex flex-col space-y-2 flex-grow pt-3">
+                
+                {/* ================= CATEGORY AND RATING ================= */}
+                <div className="inline-flex flex-wrap items-center justify-between gap-2">
+                    
+                    <SkeletonBox height="12px" width="60px" />
+                    
+                    <div className="flex items-center gap-1">
+                        <SkeletonCircle width="12px" height="12px" />
+                        <SkeletonBox height="12px" width="32px" />
+                    </div>
+                    
+                </div>
+
+                {/* ================= PRODUCT NAME ================= */}
+                <SkeletonBox height="14px" width="100%" />
+
+                {/* ================= PRICE ================= */}
+                <div className="flex items-end gap-2">
+                    <SkeletonBox height="12px" width="48px" />
+                    <SkeletonBox height="14px" width="48px" />
+                </div>
+
+            </div>
+
+            {/* ================= ACTION BUTTONS ================= */}
+            <div className="flex flex-wrap lg:flex-nowrap items-center justify-between gap-1 py-2 mt-3">
+                
+                <SkeletonBox height="36px" width="100%" />
+                <SkeletonBox height="36px" width="100%" />
+                
+            </div>
+
+        </div>
+    );
+};
+
+// ================= PRODUCT CARD EIGHT SKELETON =================
+export const ProductCardEightSkeleton: React.FC = () => {
+    return (
+        <div className="bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 overflow-hidden p-1.5 md:p-3 flex flex-col">
+            
+            {/* ================= PRODUCT IMAGE ================= */}
+            <SkeletonBox className="w-full aspect-square object-cover object-top rounded-lg" />
+            
+            {/* ================= PRODUCT INFO ================= */}
+            <div className="space-y-2 pt-3">
+                {/* ================= RATING ================= */}
+                <div className="flex items-center gap-1">
+                    <SkeletonCircle width="16px" height="16px" />
+                    <SkeletonBox height="12px" width="32px" />
+                </div>
+
+                {/* ================= PRODUCT NAME ================= */}
+                <SkeletonBox height="16px" width="100%" />
+
+                {/* ================= PRICE ================= */}
+                <SkeletonBox height="16px" width="64px" />
+
+                {/* ================= ADD TO CART BUTTON ================= */}
+                <SkeletonBox height="32px" width="100%" />
+            </div>
+
         </div>
     );
 };

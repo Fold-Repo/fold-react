@@ -32,7 +32,7 @@ const WishlistButton: React.FC<WishlistButtonProps> = ({ product, className, siz
     };
 
     const sizeClasses = {
-        sm: "w-6 h-6 text-sm",
+        sm: "w-6 h-6 text-xs",
         md: "w-7 h-7 text-base",
         lg: "w-10 h-10 text-lg"
     };
@@ -40,7 +40,7 @@ const WishlistButton: React.FC<WishlistButtonProps> = ({ product, className, siz
     const variantClasses = {
         solid: isInWishlist 
             ? "bg-red-500 text-white hover:bg-red-600" 
-            : "bg-gray-100 text-gray-600 hover:bg-gray-200",
+            : "bg-white text-gray-600 hover:bg-gray-200",
         outline: isInWishlist
             ? "bg-white border border-red-500 text-red-500"
             : "bg-white border border-gray-400 dark:border-gray-600 text-gray-500 dark:text-gray-100 "
@@ -60,11 +60,11 @@ const WishlistButton: React.FC<WishlistButtonProps> = ({ product, className, siz
             )}>
             {isInWishlist ? (
                 <HeartIconSolid className={cn(
-                    size === "sm" ? "size-5" : size === "lg" ? "size-5" : "size-4"
+                    size === "sm" ? "size-4" : size === "lg" ? "size-5" : "size-4"
                 )} />
             ) : (
                 <HeartIcon className={cn(
-                    size === "sm" ? "size-5" : size === "lg" ? "size-5" : "size-4"
+                    size === "sm" ? "size-4" : size === "lg" ? "size-5" : "size-4"
                 )} />
             )}
 

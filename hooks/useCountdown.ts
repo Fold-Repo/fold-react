@@ -1,6 +1,6 @@
-"use client"
+'use client'
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 /**
  * Represents the time left in the countdown.

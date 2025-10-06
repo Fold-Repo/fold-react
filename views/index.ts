@@ -4,6 +4,7 @@ import { ContactView, ContactTwoView, ContactThreeView } from "./contacts";
 import { BlogView, BlogViewTwo, BlogDetailView, BlogDetailsTwoView, BlogDetailsThreeView, BlogDetailFourView } from "./blog";
 import { ProductsView, ProductsViewTwo, ProductDetailsView, ProductDetailsViewTwo, ProductDetailsViewThree, ProductDetailsViewFour, ProductDetailsViewFive, ProductDetailsViewSix, ProductDetailsViewSeven } from "./products";
 import { WishlistView, PaymentView, CartView, CartViewTwo, CheckoutView, PaymentV2View } from "./pages";
+import { HomeView, HomeTwoView, HomeThreeView, HomeFourView, HomeFiveView, HomeSixView, HomeSevenView } from "./home";
 
 export {
 
@@ -43,5 +44,13 @@ export {
     CartViewTwo,
     CheckoutView,
     PaymentV2View,
+
+    HomeView,
+    HomeTwoView,
+    HomeThreeView,
+    HomeFourView,
+    HomeFiveView,
+    HomeSixView,
+    HomeSevenView,
     
 }

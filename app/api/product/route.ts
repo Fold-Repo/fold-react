@@ -1,5 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { products } from "@/data";
+import { home1TrendingProducts, home1PopularProducts, home1CollectionsProducts } from "@/data/home-1";
+import { home2BestCategoriesProducts, home2PopularProducts } from "@/data/home-2";
+import { home3DealsProducts, home3SpecialProducts } from "@/data/home-3";
 import { paginate } from "@/utils";
 import { ProductType } from "@/types";
 
@@ -17,7 +20,19 @@ export async function GET(req: NextRequest) {
     const availability = searchParams.get("availability")?.split(",") || [];
     const sort = searchParams.get("sort") || "default";
 
-    let data: ProductType[] = [...products];
+    // Combine all products including home-1, home-2, and home-3 products
+    const allProducts = [
+        ...products,
+        ...home1TrendingProducts,
+        ...home1PopularProducts,
+        ...home1CollectionsProducts,
+        ...home2BestCategoriesProducts,
+        ...home2PopularProducts,
+        ...home3DealsProducts,
+        ...home3SpecialProducts
+    ];
+
+    let data: ProductType[] = [...allProducts];
 
     // Filter by category
     if (category) {

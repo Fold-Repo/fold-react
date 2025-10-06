@@ -1,0 +1,5 @@
+export { CategoriesSection } from "./CategoriesSection"
+export { TopSellersSection } from "./TopSellersSection"
+export { DiscoverNewArrivalsSection } from "./DiscoverNewArrivalsSection"
+export { NewWinterCollectionSection } from "./NewWinterCollectionSection"
+export { TestimonialsSection } from "./TestimonialsSection"

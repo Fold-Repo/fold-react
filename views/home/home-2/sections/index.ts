@@ -1,0 +1,5 @@
+export { BestCategories } from "./BestCategories"
+export { OrganicProducts } from "./OrganicProducts"
+export { HealthyBanner } from "./HealthyBanner"
+export { PopularProducts } from "./PopularProducts"
+export { NewsArticles } from "./NewsArticles"
