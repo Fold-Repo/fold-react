@@ -80,6 +80,11 @@ export const NAV_GROUPS: NavGroup[] = [
             { label: "Contact 2", href: "/contact/contact-2" },
             { label: "Contact 3", href: "/contact/contact-3" }
         ]
+    },
+    {
+        id: "contact",
+        label: "Documentation",
+        href: "https://fold-documentation.netlify.app/documentation/fold/react"
     }
 ]
 
